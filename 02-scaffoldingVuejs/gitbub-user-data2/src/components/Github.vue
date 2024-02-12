@@ -10,7 +10,8 @@ const state = reactive ({
     company: 'Acme Inc.',
     avatar_url: 'https://unsplash.it/256'
 })
-async function fetchGithubUser() {
+async function fetchGithubUser(ev) {
+    ev.preventDefault()
     const res = await fetch(`https://api.github.com/users/${searchInput.value}`)
     const { login, name, bio, company, avatar_url } = await res.json()
 
@@ -24,8 +25,10 @@ async function fetchGithubUser() {
 </script>
 <template>
     <h2>GitHub User Data</h2>
-    <input type="text" v-model="searchInput">
-    <button @click="fetchGithubUser">Carregar Usuário</button>
+    <form @submit="fetchGithubUser">
+        <input type="text" v-model.lazy="searchInput">
+        <button>Carregar Usuário</button>
+    </form>
     <img :src="state.avatar_url">
     <strong>@{{ state.login }}</strong>
     <h1>{{ state.name }}</h1>
