@@ -1,4 +1,5 @@
 <script setup>
+
     import { reactive } from 'vue'
     const state = reactive({
         login: '',
@@ -9,7 +10,8 @@
         repos: [],
         searchInput: ''
     })
-    async function fetchGithubUser() {
+    async function fetchGithubUser(ev) {
+      ev.preventDefault()
       const res = await fetch(`https://api.github.com/users/${state.searchInput}`)
       const { login, name, bio, company, avatar_url } = await res.json()
       if(login) {
@@ -30,8 +32,10 @@
 </script>
 <template>
 	<h1>GitHub User Data</h1>
-  <input type="text" v-model="state.searchInput">
-  <button v-on:click="fetchGithubUser">Carregar Usuário</button>
+  <form @submit="fetchGithubUser">
+    <input type="text" v-model="state.searchInput">
+    <button type="submit">Carregar Usuário</button>
+  </form>
   <div v-if="state.login !== ''">
     <img v-bind:src="state.avatar_url">
     <strong>@{{ state.login }}</strong>
@@ -48,3 +52,6 @@
 
   </section>
 </template>
+<style scoped>
+  @import './assets/composition.css';
+</style>
