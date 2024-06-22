@@ -3,6 +3,9 @@ defineProps(['reposits'])
 
 </script>
 <template>
+    <slot>
+        
+    </slot>
     <article v-for="repo of reposits" :key="repo.id">
         <h3> {{ repo.name }}</h3>
         <p>{{ repo.description }}</p>

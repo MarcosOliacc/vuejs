@@ -1,0 +1,72 @@
+@import url('/src/styles/variables.scss');
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, #app, #body {
+width: 100vw;
+height: 100vh;
+font-family: "Inter", sans-serif;
+}
+
+
+#body {
+    background-color: var(--back-color);
+}
+.dark {
+    --back-color: #121212;
+    --text-color: #edf2fc;
+    --terc-color: #b89b9b;
+    --icon-color: invert(0%);
+}
+
+p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+h1 {
+    font-size: 3rem;
+    color: var(--text-color);
+}
+h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+a {
+    text-decoration: none;
+    color: var(--terc-color);
+    font-size: 1.3rem;
+}
+button {
+    background-color: var(--true-blue);
+    padding: 3px 10px;
+    font-size: 1.3rem;
+    color: #edf2fc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+        background-color: #0c3b79;
+    }
+}
+input {
+    width: 300px;
+    height: 25px;
+    background-color: var(--back-color);
+    color: var(--text-color);
+    border: 1px solid var(--terc-color);
+    border-radius: 10px;
+    padding: 3px 5px;
+    &::placeholder {
+        color: var(--terc-color);
+    }
+}
+.icon {
+    filter: var(--icon-color);
+    width: 40px;
+}
+
