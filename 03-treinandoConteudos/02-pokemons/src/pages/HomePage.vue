@@ -1,3 +1,38 @@
+<script setup>
+    import PokeGridSect from '@/components/PokeGrid/PokeGridSect.vue';
+import { onMounted, reactive } from 'vue';
+
+    const pokeData = reactive({
+        pokemonsUrls:[],
+        pokemons: []
+    })
+    async function getPokemons() {
+        for(const url of pokeData.pokemonsUrls) {
+            const res = await fetch(url)
+            const data = await res.json()
+            pokeData.pokemons.push(data)
+        }
+    }
+    async function fetchPokeUrls() {
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0"')
+        await res.json().then(res=>{
+            res.results.forEach(element => {
+                pokeData.pokemonsUrls.push(element.url)
+            });
+            
+            getPokemons()
+        })
+    }
+    onMounted(fetchPokeUrls)
+    
+</script>
 <template>
-    <h1>Home Page</h1>
+    <div class="conteiner">
+        <section class="featured">
+
+        </section>
+        <PokeGridSect :pokemons="pokeData.pokemons"/>
+
+    </div>
+    
 </template>

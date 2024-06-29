@@ -21,8 +21,8 @@ function handleSubmit(ev) {
 </script>
 <template>
   
-  <form @submit="handleSubmit">
-    <input type="text" v-model="searchInput" @input="$emit('update:modelValue', $event.target.value)">
+  <form @submit="handlev-model="searchInput" @input="$emit('update:modelValue', $event.target.value)Submit">
+    <input type="text" ">
     <button type="submit">Carregar Usuário</button>
     <button type="button" @click="showHistory">ver historico</button>
   </form>

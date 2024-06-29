@@ -1,8 +1,13 @@
 <script setup>
 import { ref } from 'vue';
+import Homepage from './pages/HomePage.vue'
+import SearchForm from './components/common/searchForm/SearchForm.vue'
 import { RouterLink, RouterView } from 'vue-router'
 
-const theme = ref('light')
+const theme = ref('')
+
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+theme.value = prefersDarkScheme.matches ? 'dark' : 'light'
 
 function changeTheme() {
   if(theme.value == 'light'){theme.value = 'dark'} else{theme.value = 'light'}
@@ -18,11 +23,7 @@ function changeTheme() {
       <header class="header">
         <img class="pokeLogo" src="/pokeLogo.png" alt="PokemonLogo">
         <div class="searchContent">
-          <form action="#">
-            <input type="text" class="searchInput"
-            placeholder="Hunt Pokemons?">
-            <button><img class="searchIcon" src="/searchIcon.svg" alt=""></button>
-          </form>
+          <SearchForm/>
         </div>
         <nav class="nav">
             <RouterLink class="routerContent" to="/">
@@ -46,7 +47,7 @@ function changeTheme() {
         </nav>
       </header>
     
-      <RouterView />
+      <RouterView/>
 
     </div>
   </div>

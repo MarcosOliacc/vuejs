@@ -34,7 +34,6 @@ async function fetchGithubUser(username) {
 }
 async function searchRepos(login) {
     const res = await fetch(`https://api.github.com/users/${login}/repos`)
-    const repos = await res.json()
     profile.repos = repos
 }
 

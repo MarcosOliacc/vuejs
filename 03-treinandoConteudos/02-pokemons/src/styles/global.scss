@@ -8,8 +8,8 @@
     box-sizing: border-box;
 }
 body, #app, #body {
-width: 100vw;
-height: 100vh;
+width: 100%;
+height: 100%;
 font-family: "Inter", sans-serif;
 }
 
@@ -20,7 +20,7 @@ font-family: "Inter", sans-serif;
 .dark {
     --back-color: #121212;
     --text-color: #edf2fc;
-    --terc-color: #b89b9b;
+    --terc-color: #b4b4b4;
     --icon-color: invert(0%);
 }
 
@@ -34,6 +34,10 @@ h1 {
 }
 h2 {
     font-size: 2rem;
+    color: var(--text-color);
+}
+h3 {
+    font-size: 1.5rem;
     color: var(--text-color);
 }
 a {
@@ -70,3 +74,28 @@ input {
     width: 40px;
 }
 
+.typeContent {
+    width: 80px;
+    font-size: 1rem;
+    text-align: center;
+    padding: 3px 0;
+    border-radius: 6px;
+}
+.grass {
+    background-color: rgb(25, 131, 25);
+}
+.poison {
+    background-color: #9240a7;
+}
+.fire {
+    background-color: rgb(226, 89, 25);
+}
+.water {
+    background-color: rgb(44, 120, 206);
+}
+.bug {
+    background-color: rgb(14, 85, 14);
+}
+.flying {
+    background: linear-gradient(rgb(60, 199, 209), #a1a1a1);
+}
