@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import Homepage from './pages/HomePage.vue'
 import SearchForm from './components/common/searchForm/SearchForm.vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, } from 'vue-router'
 
 const theme = ref('')
 
@@ -12,6 +12,7 @@ theme.value = prefersDarkScheme.matches ? 'dark' : 'light'
 function changeTheme() {
   if(theme.value == 'light'){theme.value = 'dark'} else{theme.value = 'light'}
   console.log(theme.value)
+
 }
 
 
