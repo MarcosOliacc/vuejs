@@ -1,6 +1,7 @@
 <script setup>
     import PokeGridSect from '@/components/PokeGrid/PokeGridSect.vue';
-import { onMounted, reactive } from 'vue';
+    import WhoIsSect from '@/components/WhoIsSect/WhoIsSect.vue';
+    import { onMounted, reactive } from 'vue';
 
     const pokeData = reactive({
         pokemonsUrls:[],
@@ -28,9 +29,7 @@ import { onMounted, reactive } from 'vue';
 </script>
 <template>
     <div class="conteiner">
-        <section class="featured">
-
-        </section>
+        <WhoIsSect/>
         <PokeGridSect :pokemons="pokeData.pokemons"/>
 
     </div>

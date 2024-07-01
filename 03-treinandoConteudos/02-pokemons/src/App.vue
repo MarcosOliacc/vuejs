@@ -55,5 +55,5 @@ function changeTheme() {
 </template>
 
 <style scoped>
-@import '@/styles/compStyles/appStyles.scss'
+@import '@/styles/compStyles/appStyles.scss';
 </style>

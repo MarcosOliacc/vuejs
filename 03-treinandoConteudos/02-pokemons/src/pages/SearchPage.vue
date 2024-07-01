@@ -10,10 +10,11 @@ async function searchPokes() {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1025`)
     const data = await res.json()
     const pok = await searchPokesFilters(data.results, route.params.name, 'name')
-    console.log(pok)
+    
     for(const poke of pok) {
         const res = await fetch(poke.url)
         const data = await res.json()
+        console.log(data)
         pokeData.pokemons.push(data)
     }
 }
