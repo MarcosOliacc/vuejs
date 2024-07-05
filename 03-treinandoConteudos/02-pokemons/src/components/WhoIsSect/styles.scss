@@ -16,17 +16,24 @@
     width: 450px;
     height: 429px;
     background: url('/podiumOn.jpg') no-repeat center bottom;
+    .pokeImg {
+        filter: none;
+    }
 }
 .off {
     width: 450px;
     height: 429px;
     background: url('/podium.jpg') no-repeat center bottom;
+    .pokeImg {
+        filter: contrast(0%) brightness(0.1);
+    }
+    
 }
 .pokeImg {
     position: absolute;
     top: 30%;
     right: 30%;
-    filter: contrast(0%) brightness(0.1);
+    
 }
 .shadowBoxX {
     background: linear-gradient(to right, var(--back-color)-1%, rgba(255, 0, 0, 0)50%, var(--back-color)101%) ;
@@ -38,6 +45,12 @@
     width: 100%;
     height: 100%;
     position: relative;
+    p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 .defConteiner {
     display: flex;
@@ -55,4 +68,5 @@
     }
 }
 .falseResConteiner {
+    
 }
