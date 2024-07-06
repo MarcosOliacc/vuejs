@@ -15,7 +15,7 @@
         }
     }
     async function fetchPokeUrls() {
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=40&offset=0"')
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=15&offset=0"')
         await res.json().then(res=>{
             res.results.forEach(element => {
                 pokeData.pokemonsUrls.push(element.url)
