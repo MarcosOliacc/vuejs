@@ -53,6 +53,7 @@ function searchPokesFilters(items, name, field) {
 }
 onMounted(searchPokes)
 
+
 </script>
 <template>
     <section>

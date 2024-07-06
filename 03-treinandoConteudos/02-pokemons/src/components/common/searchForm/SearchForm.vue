@@ -5,14 +5,13 @@ const router = useRouter()
 const searchInput = ref('')
 
 async function handleSearch(ev) {
-    ev.preventDefault()
     router.replace(`/search/${searchInput.value}`)
     
 }
 
 </script>
 <template>
-    <form @submit="handleSearch" action="#">
+    <form @submit="handleSearch">
         <input type="text" class="searchInput"
         placeholder="Procurando Pokemons?"
         v-model="searchInput">
