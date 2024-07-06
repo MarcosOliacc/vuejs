@@ -5,7 +5,6 @@ const router = useRouter()
 const searchInput = ref('')
 
 async function handleSearch(ev) {
-    ev.preventDefault()
     router.replace(`/search/${searchInput.value}`)
     
 }
