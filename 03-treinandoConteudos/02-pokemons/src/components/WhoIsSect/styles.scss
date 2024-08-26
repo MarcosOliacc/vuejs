@@ -32,7 +32,7 @@
 .pokeImg {
     position: absolute;
     top: 30%;
-    right: 30%;
+    right: 27%;
     
 }
 .shadowBoxX {
@@ -67,6 +67,7 @@
         gap: 20px;
     }
 }
-.falseResConteiner {
+.trueResConteiner {
+    @extend .defConteiner;
     
 }

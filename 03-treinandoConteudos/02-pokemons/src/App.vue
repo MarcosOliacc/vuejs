@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import Homepage from './pages/HomePage.vue'
 import SearchForm from './components/common/searchForm/SearchForm.vue'
-import { RouterLink, RouterView, } from 'vue-router'
 
 const theme = ref('')
 
@@ -38,7 +36,7 @@ function changeTheme() {
             </RouterLink>
 
             <a class="routerContent" href="">
-              <a href="#">Repositório</a>
+              <a href="https://github.com/MarcosOliacc/vuejs/tree/main/03-treinandoConteudos/02-pokemons" target="_blank">Repositório</a>
               <img  class="linkArrow icon" src="/rightArrow.svg" alt="rightArrow">
             </a>
           

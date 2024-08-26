@@ -1,11 +1,16 @@
 
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 const pokeData = reactive({
-    pokemons: []
+    pokemons: [],
+    pokemonsUrls: []
 })
+const pokeCount = ref(0)
+
 async function searchPokes(params) {
     pokeData.pokemons = []
+    console.log(pokeData.pokemons)
+    pokeCount.value = 0
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1025`);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
@@ -15,10 +20,11 @@ async function searchPokes(params) {
         for(const poke of pok) {
             const res = await fetch(poke.url);
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-            const data = await res.json();
-            console.log(data);
-            pokeData.pokemons.push(data);
+            const data2 = await res.json();
+            pokeData.pokemons.push(data2);
         }
+        addCount(pokeData.pokemons.length)
+        console.log(pokeData.pokemons.length)
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -50,4 +56,30 @@ function searchPokesFilters(items, name, field) {
   });
   return filteredItens
 }
-export { searchPokes, pokeData }
+function addCount(num) {
+  pokeCount.value = num
+}
+function removeSearch() {
+  pokeData.pokemons = []
+  pokeCount.value = 0
+}
+async function getPokemons() {
+  for(const url of pokeData.pokemonsUrls) {
+      const res = await fetch(url)
+      const data = await res.json()
+      pokeData.pokemons.push(data)
+      console.log(pokeData.pokemons)
+  }
+}
+async function fetchPokeUrls() {
+  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=15&offset=0"')
+  await res.json().then(res=>{
+      res.results.forEach(element => {
+          pokeData.pokemonsUrls.push(element.url)
+      });
+      
+      
+  })
+  await getPokemons()
+}
+export {addCount,fetchPokeUrls,removeSearch, searchPokes, pokeData, pokeCount }

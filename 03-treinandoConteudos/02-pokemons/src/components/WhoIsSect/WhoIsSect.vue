@@ -85,11 +85,14 @@ onMounted(fetchOnePokemon)
                 </div>
             </form>
         </div>
-        <div v-else-if="divActived == 'trueDiv'" class="defConteiner">
-            <h1>acertou</h1>
+        <div v-else-if="divActived == 'trueDiv'" class="trueResConteiner">
+            <h1>Parabéns, esse é o {{ pokedata.pokemon.name }}</h1>
+            <div class="">
+
+            </div>
             <button @click="again">Tente novamente!</button>
         </div>
-        <div v-else-if="divActived == 'falseDiv'" class="falseResConteiner">
+        <div v-else-if="divActived == 'falseDiv'" class="defConteiner">
             <h3>Que pena, parece que você errou! </h3>
             <p>O nome correto é: {{pokedata.pokemon.name}}</p>
             <button @click="tryAgain">Tente novamente!</button>

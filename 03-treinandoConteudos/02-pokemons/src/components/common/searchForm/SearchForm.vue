@@ -8,8 +8,9 @@ const searchInput = ref('')
 
 async function handleSearch(ev) {
     ev.preventDefault()
+    await searchPokes(searchInput.value)
     router.replace(`/search/${searchInput.value}`)
-    searchPokes(searchInput.value)
+    
 }
 
 </script>

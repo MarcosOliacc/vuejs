@@ -8,15 +8,27 @@
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(to right, var(--back-color), rgba(255, 0, 0, 0) 30%, var(--back-color));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+
 }
 .shadowBoxY {
     background: linear-gradient(to bottom, var(--back-color), rgba(255, 0, 0, 0)30%, var(--back-color));
     width: 100%;
     height: 100%;
+
 }
 .content {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
     justify-content: center;
+}
+.paginationContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
